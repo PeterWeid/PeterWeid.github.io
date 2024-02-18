@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Digitaler Hinweis :)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #hiddenImage {
+            display: none;
+        }
+
+        /* Adjust layout for the input and button */
+        input[type="text"], button {
+            display: block; /* Make input and button take the full width and be on separate lines */
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            input[type="text"], button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <p>Ich hätte erwähnen sollen, dass es nicht nur Umschläge gibt in diesem Spiel</p>
+    <p>Um hier weiter zu kommen musst unten das richtige Lösungswort eingeben (Groß- und Kleinschreibung beachten!)</p>
+    <img src="franz.jpeg" alt="Secret Image">
+
+    <label for="passwordInput">Deine Antwort:</label>
+    <input type="text" id="passwordInput" placeholder="deine Antwort"> <!-- Changed to type="text" -->
+    <button onclick="showImage()">Submit</button>
+
+    <img id="hiddenImage" src="hint.png" alt="Secret Image">
+
+    <script>
+        function showImage() {
+            var password = document.getElementById("passwordInput").value.toLowerCase();
+            var image = document.getElementById("hiddenImage");
+
+            if(password === "franzbrötchen") {
+                image.style.display = "block";
+            } else {
+                alert("Das war leider nicht richtig!");
+                image.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
